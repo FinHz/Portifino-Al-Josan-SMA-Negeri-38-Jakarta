@@ -1,0 +1,585 @@
+:root{
+    /* Typography */
+    --font-family: Onest, Poppins, 'Helvetica', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family-header: 'Bodoni Moda', serif, Poppins, Onest;
+    --fsxs: 0.8rem;
+    --fssm: 1rem;
+    --fsnm: 1.2rem;
+    --fsmd: 1.5rem;
+    --fslg: 2.5rem;
+    --fsxl: 4rem;
+    --fsxxl: 6rem;
+    --fsxxxl: 10rem;
+    --fsxxxxl: 15rem;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 5rem;
+    --spacing-xxxl: 10rem;
+    --spacing-xxxxl: 2rem;
+
+    /* Layout */
+    --max-width: 1200px;
+
+    /* Colors */
+    --color-secondary: hsl(29, 43%, 63%);
+    --color-accent: #9b3866;
+    --color-primary: #f2e4d4;
+    --text-dark: #333;
+    --text-light: #ddd;
+    --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-light-sharp: 0 0 12px rgba(0, 0, 0, 1);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+}
+
+*{
+    margin: 0;
+}
+
+body{
+    font-family: var(--font-family);
+    letter-spacing: 0.15rem;
+    color: var(--text-dark);
+    background-color: var(--color-primary);
+}
+
+@media (min-width: 891px){
+    .nav svg{
+        display: none;
+    }
+
+    #toggle{
+        display: none;
+    }
+}
+
+@media (max-width: 890px){
+    .nav{
+        max-width: 100% !important;
+        padding: var(--spacing-xs) 8vw !important;
+        z-index: 100 !important;
+    }
+    
+    .nav ul{
+        flex-direction: column;
+        justify-content: start;
+        align-items: end;
+        position: fixed;
+        top: 73px;
+        left: 200%;
+        height: 100%;
+        padding-right: 8vw;
+        transition: 0.25s ease-in;
+        display: none;
+    }
+    
+    label{
+        z-index: 1000;
+    }
+    
+    #toggle{
+        display: none;
+    }
+
+    input:checked ~ nav ul.nav-links{     
+        display: flex;
+        left: 60%;
+        right: 0;
+        background-color: hsl(from var(--color-primary) h s l);
+        border-left: solid 2px var(--text-dark);
+        justify-content: start;
+        transition: 0.25s ease-out;
+        position: fixed;
+    }
+    
+    input:checked ~ nav label{
+        text-align: right;
+        background: red;
+        opacity: 0%;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 0;
+    }
+
+    input:checked ~ .nav label svg.burger{
+        z-index: 100;
+        display: none;
+    }
+
+    input:checked ~ .nav svg.cancel{
+        display: flex;
+        scale: 2;
+        z-index: -1;
+    }
+
+    .nav svg.cancel{
+        display: none;
+    }
+}
+
+
+.header{
+    background: white;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    margin-bottom: var(--spacing-xxl);
+    position: fixed;
+    background-color: var(--color-primary);
+    box-shadow: var(--shadow-medium);
+}
+
+.nav{
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    max-width: 60%;
+    letter-spacing: 0.2rem;
+}
+
+.nav svg.burger{
+    height: 2.4rem;
+    stroke: var(--text-dark);
+}
+
+.logo{
+    font-family: "Overlock SC";
+    font-weight: 900;
+    font-size: var(--fslg);
+    padding-bottom: var(--spacing-xs);
+}
+
+.logo a{
+    list-style: none;
+    text-decoration: none;
+    color: hsl(from var(--color-secondary) h s calc(l - 16));
+}
+
+.nav-links{
+    display: flex;
+    gap: var(--spacing-lg);
+    list-style: none;
+}
+
+.nav-links a{
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--text-dark);
+    letter-spacing: 3px;
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover{
+    color: var(--color-secondary);
+}
+
+#home{
+    padding-top: var(--spacing-xxl);
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+}
+
+#home div.headings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+h1.logo-name{
+    font-size: min(var(--fsxxxl), 24vw);
+    letter-spacing: var(--spacing-xs);
+    font-family: "Overlock SC";
+    color: hsl(from var(--color-secondary) h s calc(l - 16));
+}
+
+h2.slogan{
+    font-weight: 200;
+    margin-bottom: var(--spacing-xl);
+    font-size: min(var(--fsnm), 4vw);
+}
+
+#home img.home-img{
+    width: 100%;
+    max-width: 1600px;
+    height: 500px;
+    max-height: 50vw;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+#about {
+    padding: var(--spacing-xxl) 0 0 0;
+}
+
+h1.title{
+    text-align: center;
+    font-size: min(var(--fsxl), 8vw);
+    font-family: var(--font-family-header);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xl);
+}
+
+#about div.content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#about div.content img{
+    object-fit: cover;
+    aspect-ratio: 2/1;
+    object-position: top;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+#about div.content div.paragraphs{
+    flex-grow: 1;
+    width: 30%;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-xl) min(var(--spacing-xxxl), 8vw);
+    background-color: hsl(from var(--color-secondary) h calc(s + 4) calc(l + 16));
+    font-size: min(var(--fsnm), 2.4vw);
+    align-items: start;
+    justify-content: center;
+    line-height: min(1.8rem, 4vw);
+}
+
+#about div.content div.paragraphs button{
+    margin-top: var(--spacing-md);
+    font-size: var(--fsmd);
+    font: inherit;
+    color: var(--color-accent);
+    font-weight: 700;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    align-items: start;
+    background: transparent;
+    border: solid 0.3rem var(--color-accent);
+    transition: all 0.2s ease;
+}
+
+#about div.content div.paragraphs button:hover{
+    color: hsl(from var(--color-accent) h s calc(l - 16));
+    border: solid 0.3rem hsl(from var(--color-accent) h s calc(l - 16));
+    scale: 1.05;
+}
+
+#about svg.wave1 path{
+    fill: hsl(from var(--color-secondary) h calc(s + 4) calc(l + 16));
+}
+
+#product{
+    padding-top: var(--spacing-xxl);
+    margin-bottom: var(--spacing-xl);
+}
+
+#product div.products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    width: 95%;
+    margin: auto;
+}
+
+@media (max-width: 707px){
+    #product div img{
+        aspect-ratio: 16/9 !important;
+        width: 36vw !important;
+    }
+}
+
+#product div.one div:hover{
+    scale: 1.05;
+    transition: all 0.25s ease;
+}
+
+.products div.one{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.products div div{
+    display: flex;
+    flex-direction: column;
+}
+
+.products div img{
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    width: 16vw;
+    min-width: 150px;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.products div div h2{
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    background: #fafafa;
+    z-index: 20;
+    font-size: min(var(--fssm), 3vw);
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+#contact {
+    letter-spacing: 0.1rem;
+    padding-top: var(--spacing-xxl);
+    margin-left: min(2rem, 2vw);
+    margin-right: min(2rem, 2vw);
+}
+
+#contact div.top{
+    margin-bottom: var(--spacing-xxl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact div.top p{
+    width: min(48rem, 80%);
+    font-weight: 200;
+    font-size: min(var(--fsnm), 4vw);
+    text-align: center;
+}
+
+#contact input{
+    font-family: var(--font-family);
+    font-size: min(var(--fsnm), 2.4vw);
+    color: var(--text-dark);
+    background-color: hsl(from var(--color-primary) h s l);
+    border: solid 1px hsl(from var(--color-secondary) h s calc(l + 16));
+    border-radius: 0.2rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    outline: none;
+}
+
+#contact h4{
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+    font-size: var(--fsnm);
+}
+
+
+#contact div.center {
+    display: flex;
+    align-items: stretch;
+    gap: min(var(--spacing-lg), 3vw);
+    display: flex;
+    flex-wrap: wrap;
+    max-width: max(60%, 36rem);
+    margin: 0 auto;
+}
+
+#contact div.left {
+    display: flex;
+    flex-direction: column;
+    gap: min(var(--spacing-md), 2vw);
+    text-align: left;
+    font-size: var(--fsnm);
+}
+
+#contact div.center div.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    flex-grow: 1;
+    width: 36%;
+}
+
+#contact div.center div.left div{
+    border: solid 1px;
+    border-radius: 0.5rem;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: hsl(from var(--color-secondary) h s calc(l + 20));
+    border: solid 1px hsl(from var(--color-secondary) h s l);
+}
+
+#contact div.center div.left div p{
+    color: hsl(from var(--text-dark) h s calc(l + 20));
+    margin: 1rem 0 0.2rem 0;
+    line-height: 1.5rem;
+    font-size: min(var(--fsnm), 3vw);
+
+}
+
+#contact div.center div.left div h3{
+    font-weight: 600;
+    font-size: min(var(--fsmd) 4vw);
+}
+
+.left div span{
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#contact div.center div.right{
+    border: solid 1px hsl(from var(--color-secondary) h s l);
+    border-radius: 0.5rem;
+    text-align: left;
+    background-color: hsl(from var(--color-secondary) h s calc(l + 20));
+    padding: var(--spacing-sm) var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 50%;
+}
+
+#contact div.center div.right h2{
+    margin-bottom: var(--spacing-lg);
+}
+
+#contact div.center div.right div.feedback{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: var(--spacing-md);
+}
+
+#contact div.center div.right div.feedback div.input{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+div.input div{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+div.feedback div.message{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#contact div.center div.right div.feedback div.message textarea{
+    resize: vertical;
+    border-radius: 0.5rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: hsl(from var(--color-primary) h s l);
+    border: solid 1px hsl(from var(--color-secondary) h s calc(l + 16));
+    outline: none;
+    font-family: var(--font-family);
+    font-size: min(var(--fsnm), 2.4vw);
+    color: var(--text-dark);
+    flex-grow: 1;
+}
+
+div.left div span svg{
+    margin-right: var(--spacing-xs);
+    fill: var(--color-accent);
+    height: 2rem;
+}
+
+.message div p{
+    margin: 0.2rem 0 var(--spacing-md) 0;
+}
+
+.message button{
+    padding: var(--spacing-xs) var(--spacing-xl);
+    font-family: inherit;
+    text-align: left;
+    color: var(--text-light);
+    align-items: center;
+    font-size: var(--fssm);
+    background-color: var(--color-accent);
+    border: 0;
+    transition: all 0.2s ease;
+}
+
+.message button:hover{
+    background-color: hsl(from var(--color-accent) h calc(s - 10) calc(l - 10));
+    scale: 1.05;
+}
+
+.message button svg{
+    height: 2rem;
+    margin-right: var(--spacing-xs);
+    fill: var(--text-light);
+}
+
+@media (max-width: 1224px){
+    #footer{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #footer div.A div p{
+        margin: auto;
+    }
+
+    #footer div h2.slogan{
+        width: 80vw !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+}
+
+#footer{
+    margin-top: var(--spacing-xxxl);
+    background-color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    color: var(--text-light);
+    align-items: center;
+}
+
+#footer div.A{
+    display: flex;
+    margin: 0 var(--spacing-xxl);
+    border-bottom: solid 1px ;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+#footer div.A div h1.logo-name{
+    color: hsl(from var(--color-secondary) h s l);
+    font-size: min(24vw, var(--fsxxl));
+}
+
+#footer div.A div p{
+    width: 60%;
+    font-size: min(var(--fssm), 3vw);
+    font-weight: 100;
+    opacity: 80;
+}
+
+#footer div h2.slogan{
+    font-size: min(4vw, var(--fsmd));
+    width: 24rem;
+    margin: var(--spacing-md) min(var(--spacing-md), 1vw);
+    text-align: left;
+}
+
+#footer a{
+    color: var(--text-light);
+    padding: var(--spacing-sm) 0;
+    text-decoration: none;
+    opacity: 60%;
+    font-weight: 100;
+}
