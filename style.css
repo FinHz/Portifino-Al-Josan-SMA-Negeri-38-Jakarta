@@ -258,6 +258,7 @@ h1.title{
     align-items: start;
     justify-content: center;
     line-height: min(1.8rem, 4vw);
+    letter-spacing: 0;
 }
 
 #about div.content div.paragraphs button{
@@ -582,4 +583,5 @@ div.left div span svg{
     text-decoration: none;
     opacity: 60%;
     font-weight: 100;
+
 }
